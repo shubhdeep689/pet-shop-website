@@ -169,34 +169,6 @@ PET SHOP/
 └── README.md          (This file)
 ```
 
-## 🚀 Quick Start
-
-### Method 1: Direct File Opening
-1. Download or clone the project files
-2. Navigate to the `PET SHOP` folder
-3. Right-click `index.html` and select "Open with" your browser
-4. The website will load completely functional
-
-### Method 2: Using Local Server (Recommended)
-
-**Using Python 3:**
-```bash
-cd "c:\webcom\PET SHOP"
-python -m http.server 8000
-```
-Then open `http://localhost:8000` in your browser
-
-**Using Node.js (with http-server):**
-```bash
-cd "c:\webcom\PET SHOP"
-npx http-server
-```
-
-**Using VS Code Live Server Extension:**
-1. Install "Live Server" extension
-2. Right-click `index.html`
-3. Select "Open with Live Server"
-
 ## 📱 Responsive Breakpoints
 
 - **Desktop (1200px+)** - Full layout with all features
@@ -214,38 +186,6 @@ npx http-server
 - **Light Background:** #f8f9fa
 - **Dark Background:** #212529
 
-## 🔧 Customization Guide
-
-### Changing Colors
-Edit the root variables in `style.css`:
-```css
-:root {
-    --primary-color: #0d6efd;
-    --secondary-color: #ffc107;
-    /* ... more variables */
-}
-```
-
-### Replacing Images
-Update image URLs in `index.html`. Replace Unsplash URLs with your own images:
-```html
-<img src="https://your-image-url.jpg" alt="Description">
-```
-
-### Updating Contact Information
-Search for contact details in `index.html` and update:
-- Phone: +91 XXXXXXXXXX
-- Email: info@brarpetshop.com
-- Address: Old Fazilka, Abohar, Punjab 152116
-- Hours: Mon-Sat: 9 AM - 6 PM, Sun: 10 AM - 4 PM
-
-### Modifying Pet/Product Data
-Edit the pet and product cards in the respective sections. Each card has:
-- Image
-- Name
-- Description
-- Price
-- Availability status
 
 ### Google Map
 To embed your actual location:
