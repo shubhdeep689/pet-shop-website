@@ -7,9 +7,37 @@
 // Initialize on DOM Content Loaded
 // ===============================================
 
+
+
+// ===============================================
+// Inheritance of Common Elements (Navbar & Footer)
+// ===============================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Load Navbar
+    fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading navbar:", error));
+
+    // Load Footer
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
+
+let petPagination = null;
 
 // ===============================================
 // Main Initialization Function
@@ -25,6 +53,8 @@ function initializeApp() {
     initializeTooltips();
     initializeFormValidation();
     initializeCartButtons();
+    initializePagination();
+    initializePetFilters();
     initializeSearchFunctionality();
     initializeBackToTopButton();
     initializeGalleryModal();
@@ -374,6 +404,247 @@ function initializeSearchFunctionality() {
 }
 
 // ===============================================
+// Pet Search and Filter Functionality
+// ===============================================
+
+function initializePetFilters() {
+    const searchInput = document.getElementById('petSearchInput');
+    const petTypeFilter = document.getElementById('petTypeFilter');
+    const priceRangeFilter = document.getElementById('priceRangeFilter');
+    const resetBtn = document.getElementById('resetFiltersBtn');
+    const petCardsContainer = document.getElementById('petCardsContainer');
+    const petCardWrappers = document.querySelectorAll('.pet-card-wrapper');
+    const noResultsMessage = document.getElementById('noResultsMessage');
+
+    // Function to extract price value from the pet wrapper
+    function getPetPrice(wrapper) {
+        const priceText = wrapper.querySelector('.card-body small:nth-of-type(2) .text-danger').textContent;
+        return parseInt(priceText.replace(/[₹,]/g, ''));
+    }
+
+    // Function to check if price is in range
+    function isPriceInRange(price, rangeFilter) {
+        if (!rangeFilter) return true;
+        
+        if (rangeFilter === '0-5000') return price <= 5000;
+        if (rangeFilter === '5000-20000') return price > 5000 && price <= 20000;
+        if (rangeFilter === '20000-50000') return price > 20000 && price <= 50000;
+        if (rangeFilter === '50000+') return price > 50000;
+        
+        return true;
+    }
+
+    // Main filter function
+    function applyFilters() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const selectedType = petTypeFilter.value;
+        const selectedPriceRange = priceRangeFilter.value;
+        
+        let visibleCount = 0;
+
+        petCardWrappers.forEach(wrapper => {
+            const petName = wrapper.getAttribute('data-pet-name').toLowerCase();
+            const petType = wrapper.getAttribute('data-pet-type');
+            const petPrice = parseInt(wrapper.getAttribute('data-pet-price'));
+
+            // Check search term
+            const matchesSearch = searchTerm === '' || petName.includes(searchTerm);
+            
+            // Check pet type
+            const matchesType = selectedType === '' || petType === selectedType;
+            
+            // Check price range
+            const matchesPrice = isPriceInRange(petPrice, selectedPriceRange);
+
+            // If all filters match, show the card
+            if (matchesSearch && matchesType && matchesPrice) {
+                wrapper.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                wrapper.classList.add('hidden');
+            }
+        });
+
+        // Show or hide no results message
+        if (visibleCount === 0) {
+            noResultsMessage.classList.remove('d-none');
+        } else {
+            noResultsMessage.classList.add('d-none');
+        }
+
+        if (petPagination && typeof petPagination.refresh === 'function') {
+            petPagination.refresh();
+        }
+    }
+
+    // Function to reset all filters
+    function resetFilters() {
+        searchInput.value = '';
+        petTypeFilter.value = '';
+        priceRangeFilter.value = '';
+        
+        petCardWrappers.forEach(wrapper => {
+            wrapper.classList.remove('hidden');
+        });
+        
+        noResultsMessage.classList.add('d-none');
+        
+        if (petPagination && typeof petPagination.refresh === 'function') {
+            petPagination.refresh();
+        }
+        
+        // Trigger AOS animation refresh if available
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
+    }
+
+    // Event listeners
+    if (searchInput) {
+        searchInput.addEventListener('input', applyFilters);
+    }
+
+    if (petTypeFilter) {
+        petTypeFilter.addEventListener('change', applyFilters);
+    }
+
+    if (priceRangeFilter) {
+        priceRangeFilter.addEventListener('change', applyFilters);
+    }
+
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetFilters);
+    }
+}
+
+function initializePagination() {
+    const wrappers = Array.from(document.querySelectorAll('.pet-card-wrapper'));
+    const paginationContainer = document.getElementById('pagination');
+    let currentPage = 1;
+    let itemsPerPage = getItemsPerPage();
+
+    function getItemsPerPage() {
+        return window.innerWidth >= 992 ? 8 : 4;
+    }
+
+    function getVisibleWrappers() {
+        return wrappers.filter(wrapper => !wrapper.classList.contains('hidden'));
+    }
+
+    function renderPagination() {
+        if (!paginationContainer) {
+            return;
+        }
+
+        const visibleWrappers = getVisibleWrappers();
+        const totalPages = Math.max(1, Math.ceil(visibleWrappers.length / itemsPerPage));
+
+        paginationContainer.innerHTML = '';
+
+        if (visibleWrappers.length <= itemsPerPage) {
+            const nav = paginationContainer.closest('nav');
+            if (nav) {
+                nav.style.display = 'none';
+            }
+            return;
+        }
+
+        const nav = paginationContainer.closest('nav');
+        if (nav) {
+            nav.style.display = '';
+        }
+
+        const prevItem = document.createElement('li');
+        prevItem.className = `page-item${currentPage === 1 ? ' disabled' : ''}`;
+        prevItem.innerHTML = `<button class="page-link" type="button" aria-label="Previous page" ${currentPage === 1 ? 'tabindex="-1" aria-disabled="true"' : ''}>&laquo;</button>`;
+        if (currentPage > 1) {
+            prevItem.querySelector('button').addEventListener('click', () => changePage(currentPage - 1));
+        }
+        paginationContainer.appendChild(prevItem);
+
+        for (let page = 1; page <= totalPages; page++) {
+            const pageItem = document.createElement('li');
+            pageItem.className = `page-item${page === currentPage ? ' active' : ''}`;
+            pageItem.innerHTML = `<button class="page-link" type="button">${page}</button>`;
+            if (page === currentPage) {
+                pageItem.setAttribute('aria-current', 'page');
+            }
+            pageItem.querySelector('button').addEventListener('click', () => changePage(page));
+            paginationContainer.appendChild(pageItem);
+        }
+
+        const nextItem = document.createElement('li');
+        nextItem.className = `page-item${currentPage === totalPages ? ' disabled' : ''}`;
+        nextItem.innerHTML = `<button class="page-link" type="button" aria-label="Next page" ${currentPage === totalPages ? 'tabindex="-1" aria-disabled="true"' : ''}>&raquo;</button>`;
+        if (currentPage < totalPages) {
+            nextItem.querySelector('button').addEventListener('click', () => changePage(currentPage + 1));
+        }
+        paginationContainer.appendChild(nextItem);
+    }
+
+    function updatePageView() {
+        const visibleWrappers = getVisibleWrappers();
+        const totalPages = Math.max(1, Math.ceil(visibleWrappers.length / itemsPerPage));
+
+        if (currentPage > totalPages) {
+            currentPage = totalPages;
+        }
+
+        visibleWrappers.forEach((wrapper, index) => {
+            const isVisibleOnPage = index >= (currentPage - 1) * itemsPerPage && index < currentPage * itemsPerPage;
+            wrapper.classList.toggle('pagination-hidden', !isVisibleOnPage);
+        });
+
+        wrappers.forEach(wrapper => {
+            if (wrapper.classList.contains('hidden')) {
+                wrapper.classList.add('pagination-hidden');
+            }
+        });
+
+        renderPagination();
+    }
+
+    function refreshPagination() {
+        itemsPerPage = getItemsPerPage();
+        currentPage = 1;
+        updatePageView();
+    }
+
+    function changePage(page) {
+        currentPage = page;
+        updatePageView();
+    }
+
+    function handleResize() {
+        const nextItemsPerPage = getItemsPerPage();
+        if (nextItemsPerPage !== itemsPerPage) {
+            itemsPerPage = nextItemsPerPage;
+            currentPage = 1;
+            updatePageView();
+        }
+    }
+
+    function debounce(fn, delay) {
+        let timer;
+        return function(...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn.apply(this, args), delay);
+        };
+    }
+
+    if (paginationContainer) {
+        window.addEventListener('resize', debounce(handleResize, 200));
+    }
+
+    updatePageView();
+
+    petPagination = {
+        refresh: refreshPagination,
+        changePage: changePage
+    };
+}
+
+// ===============================================
 // Back To Top Button
 // ===============================================
 
@@ -627,3 +898,156 @@ document.addEventListener('submit', function(e) {
 console.log('%cBrar Pet Shop', 'font-size: 24px; font-weight: bold; color: #0d6efd;');
 console.log('%cYour Trusted Partner for Happy Pets', 'font-size: 16px; color: #666;');
 console.log('%cThank you for visiting our website!', 'font-size: 14px; color: #999;');
+
+
+// ===============================================
+// common elements inherited by multiple pages
+// ===============================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Load Navbar
+    fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+        })
+        .catch(error => console.error("Navbar not loaded:", error));
+
+    // Load Footer
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        })
+        .catch(error => console.error("Footer not loaded:", error));
+
+});
+
+
+// ===============================================
+// read more button in about page
+// ===============================================
+
+
+const aboutMore = document.getElementById('aboutMore');
+const readMoreBtn = document.getElementById('readMoreBtn');
+
+aboutMore.addEventListener('shown.bs.collapse', function () {
+    readMoreBtn.innerHTML = '<i class="bi bi-arrow-up-circle"></i> Read Less';
+});
+
+aboutMore.addEventListener('hidden.bs.collapse', function () {
+    readMoreBtn.innerHTML = '<i class="bi bi-arrow-down-circle"></i> Read More';
+});
+
+
+/* ===========================
+   PET PAGINATION
+=========================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const petCards = document.querySelectorAll(".pet-card-wrapper");
+    const pagination = document.getElementById("pagination");
+
+    // Stop if pagination doesn't exist
+    if (!pagination || petCards.length === 0) return;
+
+    let currentPage = 1;
+
+    // Desktop: 6 cards, Mobile: 4 cards
+    function getCardsPerPage() {
+        return window.innerWidth >= 992 ? 8 : 4;
+    }
+
+    function showPage(page) {
+
+        currentPage = page;
+
+        const cardsPerPage = getCardsPerPage();
+
+        // Hide all cards
+        petCards.forEach(card => {
+            card.style.display = "none";
+        });
+
+        // Show cards for current page
+        const start = (page - 1) * cardsPerPage;
+        const end = start + cardsPerPage;
+
+        for (let i = start; i < end && i < petCards.length; i++) {
+            petCards[i].style.display = "block";
+        }
+
+        // Update active page
+        document.querySelectorAll("#pagination .page-item")
+            .forEach(item => item.classList.remove("active"));
+
+        const activeItem = pagination.children[page - 1];
+
+        if (activeItem) {
+            activeItem.classList.add("active");
+        }
+    }
+
+    function createPagination() {
+
+        pagination.innerHTML = "";
+
+        const cardsPerPage = getCardsPerPage();
+
+        const totalPages = Math.ceil(
+            petCards.length / cardsPerPage
+        );
+
+        for (let i = 1; i <= totalPages; i++) {
+
+            pagination.innerHTML += `
+                <li class="page-item ${i === currentPage ? "active" : ""}">
+                    <a class="page-link" href="#">
+                        ${i}
+                    </a>
+                </li>
+            `;
+        }
+
+        showPage(currentPage);
+    }
+
+    // Pagination click
+    pagination.addEventListener("click", function (e) {
+
+        if (e.target.classList.contains("page-link")) {
+
+            e.preventDefault();
+
+            currentPage = parseInt(e.target.textContent);
+
+            showPage(currentPage);
+        }
+    });
+
+    // Rebuild pagination on screen resize
+    window.addEventListener("resize", function () {
+
+        const cardsPerPage = getCardsPerPage();
+
+        const totalPages = Math.ceil(
+            petCards.length / cardsPerPage
+        );
+
+        if (currentPage > totalPages) {
+            currentPage = totalPages;
+        }
+
+        createPagination();
+    });
+
+    // Initial load
+    createPagination();
+
+});
+
+
+               

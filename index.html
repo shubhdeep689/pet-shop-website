@@ -9,6 +9,7 @@
     
     <title>Brar Pet Shop - Your Trusted Partner for Happy Pets</title>
     
+    
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -29,188 +30,9 @@
         </div>
     </div>
 
-    <!-- Sticky Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm" id="mainNavbar" data-bs-spy="scroll" data-bs-target="#mainNavbar">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center fw-bold" href="#home">
-                <img src="IMAGES/BRAR%20PET%20SHOP%20LOGO.jpeg" alt="Brar Pet Shop Logo" width="100" height="60" class="me-2 rounded-circle">
-                <span>Brar Pet Shop</span>
-            </a>
-            <!-- Hamburger Menu -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Navbar Content -->
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <!-- Main Navigation Links -->
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pets">Pets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#products">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#faq">FAQ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <!-- More Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            More
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="moreDropdown">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-heart"></i> Pet Care Tips</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-shield-check"></i> Vaccination Guide</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-hand-thumbs-up"></i> Pet Adoption</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Pet Accessories</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square"></i> Blog</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                
-                <!-- Offcanvas Menu Toggle -->
-                <button class="btn btn-outline-secondary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideMenu" aria-controls="sideMenu" title="Menu">
-                      <!-- Gear Icon (Mobile) -->
-                     <i class="bi bi-gear-fill d-lg-none"></i>
+      <!-- inherting navbar -->
+      <div id="navbar"></div>
 
-                    <!-- Hamburger Icon (Large Screens) -->
-                    <i class="bi bi-list d-none d-lg-inline"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Left Side Offcanvas Menu -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="sideMenu" aria-labelledby="sideMenuLabel">
-        <div class="offcanvas-header bg-primary text-white">
-            <h5 class="offcanvas-title" id="sideMenuLabel">Menu</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body p-0">
-            <!-- User Profile Area -->
-            <div class="p-3 border-bottom">
-                <div class="text-center">
-                    <img src="IMAGES/BRAR%20PET%20SHOP%20LOGO.jpeg" alt="User Profile" class="rounded-circle mb-2" width="100" height="60">
-                    <h6 class="mb-1">Welcome Guest</h6>
-                    <small class="text-muted">Not logged in</small>
-                </div>
-            </div>
-
-            <!-- Quick Actions -->
-            <div class="p-3 border-bottom">
-                <h6 class="text-primary fw-bold mb-3">Quick Actions</h6>
-                <form class="d-flex mb-3" role="search">
-                    <input class="form-control form-control-sm me-2" type="search" id="searchInput" placeholder="Search pets" aria-label="Search">
-                    <button class="btn btn-primary btn-sm" type="button" id="searchBtn" title="Search">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-outline-secondary btn-sm" id="darkModeToggle" type="button" title="Toggle dark mode">
-                        <i class="bi bi-moon-fill"></i> Dark / Light Mode
-                    </button>
-                    <a href="#" class="btn btn-outline-primary btn-sm" title="Login">
-                        <i class="bi bi-person"></i> Login
-                    </a>
-                    <a href="#" class="btn btn-primary btn-sm" title="Register">
-                        <i class="bi bi-user-plus"></i> Register
-                    </a>
-                    <button class="btn btn-warning btn-sm position-relative" type="button" id="cartBtn" title="Shopping cart">
-                        <i class="bi bi-cart-fill"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartBadge">
-                            0
-                            <span class="visually-hidden">items in cart</span>
-                        </span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Navigation Links -->
-            <ul class="list-unstyled p-3 border-bottom">
-                <li class="mb-2"><a href="#home" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-house"></i> Home</a></li>
-                <li class="mb-2"><a href="#about" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-info-circle"></i> About Us</a></li>
-                <li class="mb-2"><a href="#pets" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-paw"></i> Pets</a></li>
-                <li class="mb-2"><a href="#products" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-bag"></i> Products</a></li>
-                <li class="mb-2"><a href="#services" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-gear"></i> Services</a></li>
-                <li class="mb-2"><a href="#gallery" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-image"></i> Gallery</a></li>
-                <li class="mb-2"><a href="#testimonials" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-chat-left-quote"></i> Testimonials</a></li>
-                <li class="mb-2"><a href="#faq" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-question-circle"></i> FAQ</a></li>
-                <li class="mb-2"><a href="#contact" class="text-decoration-none text-dark" data-bs-dismiss="offcanvas"><i class="bi bi-telephone"></i> Contact</a></li>
-            </ul>
-            
-            <!-- Categories -->
-            <div class="p-3 border-bottom">
-                <h6 class="text-primary fw-bold mb-3">Categories</h6>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="bi bi-dog"></i> Dogs</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="bi bi-cat"></i> Cats</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="bi bi-chat-right-dots"></i> Birds</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="bi bi-water"></i> Fish</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="bi bi-hourglass-split"></i> Rabbits</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="bi bi-circle-fill"></i> Hamsters</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="bi bi-cup-hot"></i> Pet Food</a></li>
-                    <li class="mb-2"><a href="#" class="text-decoration-none text-dark"><i class="bi bi-backpack"></i> Accessories</a></li>
-                </ul>
-            </div>
-            
-            <!-- Contact Information -->
-            <div class="p-3 border-bottom">
-                <h6 class="text-primary fw-bold mb-3">Contact Info</h6>
-                <div class="mb-2">
-                    <small class="text-muted">Phone</small><br>
-                    <a href="tel:+919872547768" class="text-decoration-none text-dark"><i class="bi bi-telephone"></i> +91 98725 47768</a>
-                </div>
-                <div class="mb-2">
-                    <small class="text-muted">Email</small><br>
-                    <a href="mailto:info@brarpetshop.com" class="text-decoration-none text-dark"><i class="bi bi-envelope"></i> info@brarpetshop.com</a>
-                </div>
-                <div class="mb-2">
-                    <small class="text-muted">Hours</small><br>
-                    <small>Mon-Sat: 9 AM - 6 PM<br>Sun: 10 AM - 4 PM</small>
-                </div>
-            </div>
-            
-            <!-- Social Media Icons -->
-            <div class="p-3 text-center">
-                <h6 class="text-primary fw-bold mb-3">Follow Us</h6>
-                <a href="https://facebook.com" class="btn btn-outline-primary btn-sm mx-1" title="Facebook" data-bs-toggle="tooltip">
-                    <i class="bi bi-facebook"></i>
-                </a>
-                <a href="https://instagram.com" class="btn btn-outline-danger btn-sm mx-1" title="Instagram" data-bs-toggle="tooltip">
-                    <i class="bi bi-instagram"></i>
-                </a>
-                <a href="https://wa.me/919876543210" class="btn btn-outline-success btn-sm mx-1" title="WhatsApp" data-bs-toggle="tooltip">
-                    <i class="bi bi-whatsapp"></i>
-                </a>
-                <a href="https://youtube.com" class="btn btn-outline-danger btn-sm mx-1" title="YouTube" data-bs-toggle="tooltip">
-                    <i class="bi bi-youtube"></i>
-                </a>
-                <a href="https://twitter.com" class="btn btn-outline-info btn-sm mx-1" title="X (Twitter)" data-bs-toggle="tooltip">
-                    <i class="bi bi-twitter"></i>
-                </a>
-            </div>
-        </div>
-    </div>
 
     <!-- Hero Carousel Section -->
     <section id="home" class="hero-carousel">
@@ -316,7 +138,7 @@
                     
                     <p>Our team of passionate pet lovers is committed to ensuring every pet finds the perfect home and receives the best care possible.</p>
                     
-                    <a href="#" class="btn btn-primary btn-lg mt-3">
+                    <a href="about.html" class="btn btn-primary btn-lg mt-3">
                         <i class="bi bi-arrow-right-circle"></i> Read More
                     </a>
                 </div>
@@ -611,11 +433,168 @@
                             <h5 class="card-title">Pet Grooming</h5>
                             <p class="card-text text-muted">Professional bathing, trimming, and nail care for your beloved pets.</p>
                         </div>
-                        <div class="card-footer bg-light border-0">
-                            <a href="#" class="btn btn-outline-primary w-100">Learn More</a>
-                        </div>
-                    </div>
-                </div>
+                                                        <!-- card-footer: Pet Grooming Tips Collapse -->
+                                <div class="card-footer bg-light border-0 p-0">
+
+                                <!-- Toggle Button -->
+                                <button
+                                    class="btn btn-outline-primary w-100 rounded-0 rounded-bottom"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#groomingTips"
+                                    aria-expanded="false"
+                                    aria-controls="groomingTips">
+                                    <i class="bi bi-scissors me-2"></i>
+                                    Pet Grooming Tips
+                                    <i class="bi bi-chevron-down ms-2 grooming-chevron" style="transition: transform 0.3s;"></i>
+                                </button>
+
+                                <!-- Collapsible Content -->
+                                <div class="collapse" id="groomingTips">
+                                    <div class="p-3 border-top">
+
+                                    <!-- ── 1. BATHING ── -->
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold text-primary d-flex align-items-center gap-2 mb-2">
+                                        <i class="bi bi-droplet-fill text-info"></i> Bathing
+                                        </h6>
+                                        <p class="text-muted small mb-1">
+                                        <strong>Frequency:</strong> Dogs (short coat) every 6–8 weeks · long coat every 4–6 weeks · Cats only when necessary.
+                                        </p>
+                                        <ol class="small text-muted ps-3 mb-1">
+                                        <li><strong>Brush first</strong> — remove all mats before wetting; water tightens knots.</li>
+                                        <li><strong>Use lukewarm water</strong> — test on your wrist; avoid hot water which irritates skin.</li>
+                                        <li><strong>Pet-specific shampoo only</strong> — human shampoo pH damages animal skin; lather neck downward, avoid eyes and ears.</li>
+                                        <li><strong>Rinse until water runs clear</strong> — residue causes itching and dandruff.</li>
+                                        <li><strong>Dry thoroughly</strong> — towel first, then low-heat dryer kept moving; never hold in one spot.</li>
+                                        </ol>
+                                        <div class="alert alert-warning py-1 px-2 small mb-0">
+                                        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                        Never bathe more than once a week — strips natural oils and causes dry, flaky skin.
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-2">
+
+                                    <!-- ── 2. BRUSHING ── -->
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold text-primary d-flex align-items-center gap-2 mb-2">
+                                        <i class="bi bi-brush-fill text-purple"></i> Brushing & Coat Care
+                                        </h6>
+                                        <p class="text-muted small mb-1"><strong>Choose the right tool:</strong></p>
+                                        <ul class="small text-muted ps-3 mb-1">
+                                        <li><strong>Slicker brush</strong> — long or wavy coats</li>
+                                        <li><strong>Bristle brush</strong> — short or smooth coats</li>
+                                        <li><strong>Deshedding tool</strong> — double coats (Huskies, Labs)</li>
+                                        <li><strong>Wide-tooth comb</strong> — curly coats (Poodles, Doodles)</li>
+                                        </ul>
+                                        <p class="text-muted small mb-1"><strong>Technique:</strong></p>
+                                        <ol class="small text-muted ps-3 mb-1">
+                                        <li>Always brush <strong>in the direction of hair growth</strong>.</li>
+                                        <li>Section long coats — work from tips to root to avoid ripping.</li>
+                                        <li>Focus on problem areas: behind ears, under armpits, around collar and tail base.</li>
+                                        <li>Spray detangler on mats, wait 30 sec, then work from the outer edge inward.</li>
+                                        </ol>
+                                        <p class="text-muted small mb-0">
+                                        <strong>Frequency:</strong> Short coat — weekly · Long coat — daily · Double coat — 3× per week.
+                                        </p>
+                                    </div>
+
+                                    <hr class="my-2">
+
+                                    <!-- ── 3. NAIL TRIMMING ── -->
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold text-primary d-flex align-items-center gap-2 mb-2">
+                                        <i class="bi bi-scissors text-danger"></i> Nail Trimming
+                                        </h6>
+                                        <ol class="small text-muted ps-3 mb-1">
+                                        <li><strong>Right clipper:</strong> Scissor-type for large breeds, guillotine-type for small dogs and cats. Keep blades sharp.</li>
+                                        <li><strong>Find the quick:</strong> Light nails — visible pink blood vessel. Dark nails — cut small amounts; stop when a dark dot appears at the centre.</li>
+                                        <li><strong>Cut at 45°</strong> — angled slightly toward the underside; never straight across.</li>
+                                        <li><strong>File after cutting</strong> — smooth sharp edges with a nail file or grinder.</li>
+                                        <li><strong>Check dewclaws</strong> — they never self-wear and will curl into the skin if neglected.</li>
+                                        </ol>
+                                        <div class="alert alert-danger py-1 px-2 small mb-0">
+                                        <i class="bi bi-heart-pulse-fill me-1"></i>
+                                        Keep styptic powder on hand. If you nick the quick, apply directly to the nail and hold 30 sec to stop bleeding.
+                                        </div>
+                                        <p class="text-muted small mt-1 mb-0">
+                                        <strong>Frequency:</strong> Dogs every 3–4 weeks · Cats every 2–3 weeks.
+                                        </p>
+                                    </div>
+
+                                    <hr class="my-2">
+
+                                    <!-- ── 4. EAR CLEANING ── -->
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold text-primary d-flex align-items-center gap-2 mb-2">
+                                        <i class="bi bi-ear text-primary"></i> Ear Cleaning
+                                        </h6>
+                                        <ol class="small text-muted ps-3 mb-1">
+                                        <li><strong>Inspect first</strong> — redness, foul odour or dark discharge means infection; see a vet, don't clean.</li>
+                                        <li><strong>Use vet-approved ear cleaner only</strong> — never water, hydrogen peroxide or cotton swabs inside the canal.</li>
+                                        <li><strong>Massage the base</strong> for 20–30 seconds after applying cleaner to loosen wax.</li>
+                                        <li><strong>Let them shake</strong> — it brings debris to the outer ear.</li>
+                                        <li><strong>Wipe visible area only</strong> with a cotton ball — never insert anything into the canal.</li>
+                                        </ol>
+                                        <div class="alert alert-info py-1 px-2 small mb-0">
+                                        <i class="bi bi-info-circle-fill me-1"></i>
+                                        Floppy-eared breeds and dogs that swim frequently need checks every 1–2 weeks — far more prone to yeast infections.
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-2">
+
+                                    <!-- ── 5. DENTAL CARE ── -->
+                                    <div class="mb-3">
+                                        <h6 class="fw-semibold text-primary d-flex align-items-center gap-2 mb-2">
+                                        <i class="bi bi-emoji-smile text-success"></i> Teeth & Dental Care
+                                        </h6>
+                                        <ol class="small text-muted ps-3 mb-1">
+                                        <li><strong>Pet toothpaste only</strong> — fluoride and xylitol in human toothpaste are toxic to pets.</li>
+                                        <li><strong>Start with a finger</strong> — rub along the gum line first before introducing a brush.</li>
+                                        <li><strong>Brush outer surfaces</strong> in small circular motions — the tongue handles the inner side.</li>
+                                        <li><strong>Supplement with VOHC-approved dental chews</strong> to reduce plaque between brushings.</li>
+                                        </ol>
+                                        <p class="text-muted small mb-1"><strong>Warning signs — see your vet:</strong></p>
+                                        <div class="d-flex flex-wrap gap-1 mb-1">
+                                        <span class="badge bg-danger-subtle text-danger-emphasis">Yellow/brown tartar</span>
+                                        <span class="badge bg-danger-subtle text-danger-emphasis">Persistent bad breath</span>
+                                        <span class="badge bg-danger-subtle text-danger-emphasis">Red or bleeding gums</span>
+                                        <span class="badge bg-danger-subtle text-danger-emphasis">Difficulty chewing</span>
+                                        <span class="badge bg-danger-subtle text-danger-emphasis">Loose or missing teeth</span>
+                                        </div>
+                                        <p class="text-muted small mb-0">
+                                        <strong>Frequency:</strong> Brush daily (minimum 3× a week) · Vet dental check once a year.
+                                        </p>
+                                    </div>
+
+                                    <hr class="my-2">
+
+                                    <!-- ── 6. EYE CARE ── -->
+                                    <div class="mb-0">
+                                        <h6 class="fw-semibold text-primary d-flex align-items-center gap-2 mb-2">
+                                        <i class="bi bi-eye-fill text-secondary"></i> Eye Care
+                                        </h6>
+                                        <ol class="small text-muted ps-3 mb-1">
+                                        <li><strong>Daily visual check</strong> — clear, bright eyes with minimal discharge is normal; large amounts are not.</li>
+                                        <li><strong>Wipe from inner corner outward</strong> using a damp cotton ball; use a fresh one per eye.</li>
+                                        <li><strong>Tear stain treatment</strong> — use vet-approved remover daily for flat-faced breeds; trim hair that falls across the eyes.</li>
+                                        <li><strong>Protect during baths</strong> — apply a thin line of sterile eye lubricant along the lower eyelid before bathing.</li>
+                                        </ol>
+                                        <div class="alert alert-danger py-1 px-2 small mb-0">
+                                        <i class="bi bi-exclamation-octagon-fill me-1"></i>
+                                        Yellow/green discharge, squinting, pawing at the eye or cloudiness = immediate vet visit. Do not treat at home.
+                                        </div>
+                                    </div>
+
+                                    </div><!-- /.p-3 -->
+                                </div><!-- /.collapse -->
+
+                                </div><!-- /.card-footer -->
+
+                    </div><!-- /.card -->
+                </div><!-- /.col -->
 
                 <!-- Vaccination -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
@@ -627,9 +606,130 @@
                             <h5 class="card-title">Vaccination Assistance</h5>
                             <p class="card-text text-muted">Complete vaccination guidance and health check-up services.</p>
                         </div>
-                        <div class="card-footer bg-light border-0">
-                            <a href="#" class="btn btn-outline-primary w-100">Learn More</a>
-                        </div>
+                        <!-- Vaccination Guide Collapse -->
+                            <div class="card-footer bg-light border-0 p-0">
+
+                                <!-- Toggle Button -->
+                                <button class="btn btn-outline-success w-100 rounded-0 rounded-bottom"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#vaccinationGuideCollapse"
+                                        aria-expanded="false"
+                                        aria-controls="vaccinationGuideCollapse">
+
+                                    <i class="bi bi-shield-check me-2"></i>
+                                    Vaccination Guide
+                                    <i class="bi bi-chevron-down ms-2 vaccination-chevron"
+                                    style="transition: transform 0.3s;"></i>
+                                </button>
+
+                                <!-- Collapsible Content -->
+                                <div class="collapse" id="vaccinationGuideCollapse">
+                                    <div class="p-3 border-top">
+
+                                        <!-- Your vaccination guide content goes here -->
+                                             <!-- ── 1. WHY VACCINES ARE IMPORTANT ── -->
+                                                    <div class="mb-3">
+                                                                            <h6 class="fw-semibold text-success d-flex align-items-center gap-2 mb-2">
+                                                                                <i class="bi bi-shield-check"></i> Why Vaccinations Matter
+                                                                            </h6>
+
+                                                                            <p class="text-muted small mb-0">
+                                                                                Vaccines protect pets from serious and life-threatening diseases.
+                                                                                They strengthen your pet's immune system and help prevent the spread
+                                                                                of infections to other animals.
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <hr class="my-2">
+
+                                                                        <!-- ── 2. DOG VACCINATION SCHEDULE ── -->
+                                                                        <div class="mb-3">
+                                                                            <h6 class="fw-semibold text-success d-flex align-items-center gap-2 mb-2">
+                                                                                <i class="bi bi-heart-pulse-fill text-danger"></i> Puppy Vaccination Schedule
+                                                                            </h6>
+
+                                                                            <ul class="small text-muted ps-3 mb-0">
+                                                                                <li><strong>6–8 Weeks:</strong> DHPP (Distemper, Hepatitis, Parvovirus, Parainfluenza)</li>
+                                                                                <li><strong>10–12 Weeks:</strong> DHPP Booster</li>
+                                                                                <li><strong>12–16 Weeks:</strong> Rabies Vaccine</li>
+                                                                                <li><strong>14–16 Weeks:</strong> Final DHPP Booster</li>
+                                                                                <li><strong>1 Year:</strong> Annual Booster & Rabies</li>
+                                                                            </ul>
+                                                                        </div>
+
+                                                                        <hr class="my-2">
+
+                                                                        <!-- ── 3. CAT VACCINATION SCHEDULE ── -->
+                                                                        <div class="mb-3">
+                                                                            <h6 class="fw-semibold text-success d-flex align-items-center gap-2 mb-2">
+                                                                                <i class="bi bi-heart-fill text-warning"></i> Kitten Vaccination Schedule
+                                                                            </h6>
+
+                                                                            <ul class="small text-muted ps-3 mb-0">
+                                                                                <li><strong>6–8 Weeks:</strong> FVRCP Vaccine</li>
+                                                                                <li><strong>10–12 Weeks:</strong> FVRCP Booster</li>
+                                                                                <li><strong>12–16 Weeks:</strong> Rabies Vaccine</li>
+                                                                                <li><strong>14–16 Weeks:</strong> Final FVRCP Booster</li>
+                                                                                <li><strong>1 Year:</strong> Annual Booster</li>
+                                                                            </ul>
+                                                                        </div>
+
+                                                                        <hr class="my-2">
+
+                                                                        <!-- ── 4. BEFORE VACCINATION ── -->
+                                                                        <div class="mb-3">
+                                                                            <h6 class="fw-semibold text-success d-flex align-items-center gap-2 mb-2">
+                                                                                <i class="bi bi-clipboard-check"></i> Before Vaccination
+                                                                            </h6>
+
+                                                                            <ol class="small text-muted ps-3 mb-0">
+                                                                                <li>Ensure your pet is healthy and active.</li>
+                                                                                <li>Inform the veterinarian about any previous reactions.</li>
+                                                                                <li>Carry your pet's vaccination record.</li>
+                                                                                <li>Ask your vet if deworming is needed first.</li>
+                                                                            </ol>
+                                                                        </div>
+
+                                                                        <hr class="my-2">
+
+                                                                        <!-- ── 5. AFTER VACCINATION CARE ── -->
+                                                                        <div class="mb-3">
+                                                                            <h6 class="fw-semibold text-success d-flex align-items-center gap-2 mb-2">
+                                                                                <i class="bi bi-house-heart-fill text-primary"></i> After Vaccination Care
+                                                                            </h6>
+
+                                                                            <ol class="small text-muted ps-3 mb-1">
+                                                                                <li>Allow your pet to rest.</li>
+                                                                                <li>Provide plenty of fresh water.</li>
+                                                                                <li>Avoid intense exercise for 24 hours.</li>
+                                                                                <li>Monitor for mild fever or temporary tiredness.</li>
+                                                                            </ol>
+
+                                                                            <div class="alert alert-warning py-1 px-2 small mb-0">
+                                                                                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                                                                Contact your veterinarian immediately if your pet develops facial swelling,
+                                                                                difficulty breathing, repeated vomiting, or collapses after vaccination.
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <hr class="my-2">
+
+                                                                        <!-- ── 6. REMINDER ── -->
+                                                                        <div class="mb-0">
+                                                                            <h6 class="fw-semibold text-success d-flex align-items-center gap-2 mb-2">
+                                                                                <i class="bi bi-calendar-check-fill"></i> Annual Reminder
+                                                                            </h6>
+
+                                                                            <p class="text-muted small mb-0">
+                                                                                Keep a vaccination record and schedule yearly booster shots as recommended
+                                                                                by your veterinarian to ensure lifelong protection for your pet.
+                                                                            </p>
+                                                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                     </div>
                 </div>
 
@@ -643,8 +743,28 @@
                             <h5 class="card-title">Health Consultation</h5>
                             <p class="card-text text-muted">Expert veterinary advice and health consultation services.</p>
                         </div>
-                        <div class="card-footer bg-light border-0">
-                            <a href="#" class="btn btn-outline-primary w-100">Learn More</a>
+                        <div class="card-footer bg-light border-0 p-0">
+                            <button class="btn btn-outline-primary w-100 rounded-0 rounded-bottom"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#healthConsultationDetails"
+                                    aria-expanded="false"
+                                    aria-controls="healthConsultationDetails">
+                                <i class="bi bi-heart-pulse me-2"></i>
+                                Learn More
+                                <i class="bi bi-chevron-down ms-2"></i>
+                            </button>
+                            <div class="collapse" id="healthConsultationDetails">
+                                <div class="p-3 border-top text-start small text-muted">
+                                    <p><strong>What we offer:</strong></p>
+                                    <ul class="ps-3 mb-2">
+                                        <li>Virtual and in-store vet consultations.</li>
+                                        <li>Health screening and nutrition advice.</li>
+                                        <li>Behavioral assessments and wellness planning.</li>
+                                    </ul>
+                                    <p class="mb-0"><strong>Ideal for:</strong> new pet owners, elderly pets, and preventive care.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -659,8 +779,28 @@
                             <h5 class="card-title">Pet Training</h5>
                             <p class="card-text text-muted">Professional training programs for obedience and behavior.</p>
                         </div>
-                        <div class="card-footer bg-light border-0">
-                            <a href="#" class="btn btn-outline-primary w-100">Learn More</a>
+                        <div class="card-footer bg-light border-0 p-0">
+                            <button class="btn btn-outline-primary w-100 rounded-0 rounded-bottom"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#trainingDetails"
+                                    aria-expanded="false"
+                                    aria-controls="trainingDetails">
+                                <i class="bi bi-play-circle me-2"></i>
+                                Learn More
+                                <i class="bi bi-chevron-down ms-2"></i>
+                            </button>
+                            <div class="collapse" id="trainingDetails">
+                                <div class="p-3 border-top text-start small text-muted">
+                                    <p><strong>Training programs include:</strong></p>
+                                    <ul class="ps-3 mb-2">
+                                        <li>Basic obedience and leash training.</li>
+                                        <li>House training and crate familiarization.</li>
+                                        <li>Socialization classes for puppies and adults.</li>
+                                    </ul>
+                                    <p class="mb-0"><strong>Perfect for:</strong> new puppies, busy families, and rescue pets.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -675,8 +815,28 @@
                             <h5 class="card-title">Pet Boarding</h5>
                             <p class="card-text text-muted">Safe and comfortable boarding facilities for your pets.</p>
                         </div>
-                        <div class="card-footer bg-light border-0">
-                            <a href="#" class="btn btn-outline-primary w-100">Learn More</a>
+                        <div class="card-footer bg-light border-0 p-0">
+                            <button class="btn btn-outline-primary w-100 rounded-0 rounded-bottom"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#boardingDetails"
+                                    aria-expanded="false"
+                                    aria-controls="boardingDetails">
+                                <i class="bi bi-house-heart me-2"></i>
+                                Learn More
+                                <i class="bi bi-chevron-down ms-2"></i>
+                            </button>
+                            <div class="collapse" id="boardingDetails">
+                                <div class="p-3 border-top text-start small text-muted">
+                                    <p><strong>Boarding features:</strong></p>
+                                    <ul class="ps-3 mb-2">
+                                        <li>Climate-controlled suites and supervised playtimes.</li>
+                                        <li>Daily feeding and medication administration.</li>
+                                        <li>Optional grooming and exercise add-ons.</li>
+                                    </ul>
+                                    <p class="mb-0"><strong>Great for:</strong> vacations, business trips, and short-term stays.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -691,8 +851,28 @@
                             <h5 class="card-title">Home Delivery</h5>
                             <p class="card-text text-muted">Quick and reliable delivery of pets and products to your home.</p>
                         </div>
-                        <div class="card-footer bg-light border-0">
-                            <a href="#" class="btn btn-outline-primary w-100">Learn More</a>
+                        <div class="card-footer bg-light border-0 p-0">
+                            <button class="btn btn-outline-primary w-100 rounded-0 rounded-bottom"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#deliveryDetails"
+                                    aria-expanded="false"
+                                    aria-controls="deliveryDetails">
+                                <i class="bi bi-truck me-2"></i>
+                                Learn More
+                                <i class="bi bi-chevron-down ms-2"></i>
+                            </button>
+                            <div class="collapse" id="deliveryDetails">
+                                <div class="p-3 border-top text-start small text-muted">
+                                    <p><strong>Delivery options:</strong></p>
+                                    <ul class="ps-3 mb-2">
+                                        <li>Same-day delivery for accessories and supplies.</li>
+                                        <li>Carefully packaged products and live pet pickup coordination.</li>
+                                        <li>Tracking updates and dedicated customer support.</li>
+                                    </ul>
+                                    <p class="mb-0"><strong>Available for:</strong> local customers and nearby neighborhoods.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1128,100 +1308,137 @@
                 <h2 class="display-5 fw-bold text-primary mb-2">Gallery</h2>
                 <p class="lead text-muted">Moments from Brar Pet Shop</p>
             </div>
-
-            <!-- Gallery Grid -->
+     <!-- Gallery Grid -->
             <div class="row g-3">
-                <!-- Gallery Item 1: Dogs -->
+
+                <!-- Item 1: Dogs -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="gallery-item position-relative overflow-hidden rounded shadow">
-                        <img src="IMAGES\AMERICAN_BULLY.jpeg" alt="Dogs" class="img-fluid w-100">
+                    <div class="gallery-item position-relative overflow-hidden rounded shadow" role="group" aria-label="Dogs">
+                        <img src="IMAGES/AMERICAN_BULLY.jpeg" alt="A dog at Brar Pet Shop">
                         <div class="gallery-overlay">
-                            <h6 class="text-white">Dogs</h6>
-                            <button type="button" class="btn btn-light btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://images.unsplash.com/photo-1587300411515-e47733f57868?w=800&h=600&fit=crop">
+                            <h6 class="text-white mb-2">Dogs</h6>
+                            <button type="button"
+                                class="btn btn-light btn-sm view-btn"
+                                data-image="IMAGES/AMERICAN_BULLY.jpeg"
+                                data-caption="Dogs"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal">
                                 <i class="bi bi-zoom-in"></i> View
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Gallery Item 2: Cats -->
+                <!-- Item 2: Cats -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
-                    <div class="gallery-item position-relative overflow-hidden rounded shadow">
-                        <img src="IMAGES\cat.jpeg" alt="Cats" class="img-fluid w-100">
+                    <div class="gallery-item position-relative overflow-hidden rounded shadow" role="group" aria-label="Cats">
+                        <img src="IMAGES/cat.jpeg" alt="A cat at Brar Pet Shop">
                         <div class="gallery-overlay">
-                            <h6 class="text-white">Cats</h6>
-                            <button type="button" class="btn btn-light btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=800&h=600&fit=crop">
+                            <h6 class="text-white mb-2">Cats</h6>
+                            <button type="button"
+                                class="btn btn-light btn-sm view-btn"
+                                data-image="IMAGES/cat.jpeg"
+                                data-caption="Cats"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal">
                                 <i class="bi bi-zoom-in"></i> View
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Gallery Item 3: Birds -->
+                <!-- Item 3: Birds -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="gallery-item position-relative overflow-hidden rounded shadow">
-                        <img src="IMAGES\grey-parrot-on-branch-free-photo.jpg" alt="Birds" class="img-fluid w-100">
+                    <div class="gallery-item position-relative overflow-hidden rounded shadow" role="group" aria-label="Birds">
+                        <img src="IMAGES/grey-parrot-on-branch-free-photo.jpg" alt="A bird at Brar Pet Shop">
                         <div class="gallery-overlay">
-                            <h6 class="text-white">Birds</h6>
-                            <button type="button" class="btn btn-light btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://images.unsplash.com/photo-1606214174585-fe31582dc1d8?w=800&h=600&fit=crop">
+                            <h6 class="text-white mb-2">Birds</h6>
+                            <button type="button"
+                                class="btn btn-light btn-sm view-btn"
+                                data-image="IMAGES/grey-parrot-on-branch-free-photo.jpg"
+                                data-caption="Birds"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal">
                                 <i class="bi bi-zoom-in"></i> View
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Gallery Item 4: Grooming -->
+                <!-- Item 4: Grooming -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-                    <div class="gallery-item position-relative overflow-hidden rounded shadow">
-                        <img src="IMAGES\groom.jpg" alt="Grooming" class="img-fluid w-100">
+                    <div class="gallery-item position-relative overflow-hidden rounded shadow" role="group" aria-label="Grooming">
+                        <img src="IMAGES/groom.jpg" alt="Grooming service at Brar Pet Shop">
                         <div class="gallery-overlay">
-                            <h6 class="text-white">Grooming</h6>
-                            <button type="button" class="btn btn-light btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://images.unsplash.com/photo-1516427959708-faf630c27fca?w=800&h=600&fit=crop">
+                            <h6 class="text-white mb-2">Grooming</h6>
+                            <button type="button"
+                                class="btn btn-light btn-sm view-btn"
+                                data-image="IMAGES/groom.jpg"
+                                data-caption="Grooming"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal">
                                 <i class="bi bi-zoom-in"></i> View
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Gallery Item 5: Store Interior -->
+                <!-- Item 5: Store Interior -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="gallery-item position-relative overflow-hidden rounded shadow">
-                        <img src="IMAGES\inerior.jpg" alt="Store Interior" class="img-fluid w-100">
+                    <div class="gallery-item position-relative overflow-hidden rounded shadow" role="group" aria-label="Store Interior">
+                        <img src="IMAGES/inerior.jpg" alt="Store interior of Brar Pet Shop">
                         <div class="gallery-overlay">
-                            <h6 class="text-white">Store Interior</h6>
-                            <button type="button" class="btn btn-light btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop">
+                            <h6 class="text-white mb-2">Store Interior</h6>
+                            <button type="button"
+                                class="btn btn-light btn-sm view-btn"
+                                data-image="IMAGES/inerior.jpg"
+                                data-caption="Store Interior"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal">
                                 <i class="bi bi-zoom-in"></i> View
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Gallery Item 6: Accessories -->
+                <!-- Item 6: Accessories -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-                    <div class="gallery-item position-relative overflow-hidden rounded shadow">
-                        <img src="IMAGES\ACESSORIES.png" alt="Accessories" class="img-fluid w-100">
+                    <div class="gallery-item position-relative overflow-hidden rounded shadow" role="group" aria-label="Accessories">
+                        <img src="IMAGES/ACESSORIES.png" alt="Pet accessories at Brar Pet Shop">
                         <div class="gallery-overlay">
-                            <h6 class="text-white">Accessories</h6>
-                            <button type="button" class="btn btn-light btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://images.unsplash.com/photo-1599254295840-5c1dd5c12a8d?w=800&h=600&fit=crop">
+                            <h6 class="text-white mb-2">Accessories</h6>
+                            <button type="button"
+                                class="btn btn-light btn-sm view-btn"
+                                data-image="IMAGES/ACESSORIES.png"
+                                data-caption="Accessories"
+                                data-bs-toggle="modal"
+                                data-bs-target="#galleryModal">
                                 <i class="bi bi-zoom-in"></i> View
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
     </section>
 
-    <!-- Gallery Modal -->
+    <!-- ===== Gallery Lightbox Modal ===== -->
     <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content border-0">
-                <div class="modal-header border-0">
+            <div class="modal-content border-0 shadow-lg">
+
+                <div class="modal-header border-0 pb-0">
+                    <h6 class="modal-title fw-semibold" id="galleryModalLabel"></h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-0 text-center">
-                    <img id="galleryModalImage" src="" alt="Gallery Image" class="img-fluid rounded">
+
+                <div class="modal-body p-2 text-center">
+                    <img id="galleryModalImage" src="" alt="" class="img-fluid rounded">
                 </div>
+
+                <div class="modal-caption" id="galleryModalCaption"></div>
+
             </div>
         </div>
     </div>
@@ -1412,86 +1629,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-5">
-        <div class="container">
-            <div class="row g-4 mb-4">
-                <!-- Column 1: About -->
-                <div class="col-lg-3 col-md-6">
-                    <h6 class="text-primary fw-bold mb-3">About Brar Pet Shop</h6>
-                    <p class="text-muted">Your trusted partner for happy pets. We provide premium quality pets, accessories, and professional pet care services.</p>
-                    <div class="gap-2 d-flex mt-3">
-                        <a href="https://facebook.com" class="btn btn-outline-light btn-sm" title="Facebook">
-                            <i class="bi bi-facebook"></i>
-                        </a>
-                        <a href="https://instagram.com" class="btn btn-outline-light btn-sm" title="Instagram">
-                            <i class="bi bi-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/+919872547768" class="btn btn-outline-light btn-sm" title="WhatsApp">
-                            <i class="bi bi-whatsapp"></i>
-                        </a>
-                        <a href="https://youtube.com" class="btn btn-outline-light btn-sm" title="YouTube">
-                            <i class="bi bi-youtube"></i>
-                        </a>
-                        <a href="https://twitter.com" class="btn btn-outline-light btn-sm" title="X (Twitter)">
-                            <i class="bi bi-twitter"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Column 2: Quick Links -->
-                <div class="col-lg-3 col-md-6">
-                    <h6 class="text-primary fw-bold mb-3">Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#home" class="text-muted text-decoration-none">Home</a></li>
-                        <li class="mb-2"><a href="#about" class="text-muted text-decoration-none">About Us</a></li>
-                        <li class="mb-2"><a href="#pets" class="text-muted text-decoration-none">Pets</a></li>
-                        <li class="mb-2"><a href="#products" class="text-muted text-decoration-none">Products</a></li>
-                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none">Services</a></li>
-                        <li class="mb-2"><a href="#contact" class="text-muted text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Services -->
-                <div class="col-lg-3 col-md-6">
-                    <h6 class="text-primary fw-bold mb-3">Services</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Pet Grooming</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Vaccination</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Health Consultation</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Pet Training</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Pet Boarding</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Home Delivery</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Newsletter -->
-                <div class="col-lg-3 col-md-6">
-                    <h6 class="text-primary fw-bold mb-3">Newsletter</h6>
-                    <p class="text-muted mb-3">Subscribe to our newsletter to get updates on new pets and products.</p>
-                    <form class="input-group" id="newsletterForm">
-                        <input type="email" class="form-control" placeholder="Your email" aria-label="Your email" required>
-                        <button class="btn btn-primary" type="submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <hr class="bg-secondary">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="text-muted mb-0">&copy; 2024 Brar Pet Shop. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <small class="text-muted">
-                        <a href="#" class="text-muted text-decoration-none">Privacy Policy</a> |
-                        <a href="#" class="text-muted text-decoration-none">Terms of Service</a> |
-                        <a href="#" class="text-muted text-decoration-none">Cookie Policy</a>
-                    </small>
-                </div>
-            </div>
-        </div>
-    </footer>
+     <!-- inherting footer -->
+     <div id="footer"></div>
 
     <!-- Back to Top Button -->
     <button id="backToTopBtn" class="btn btn-primary rounded-circle position-fixed" title="Back to top">
